@@ -1,0 +1,21 @@
+syntax = "proto3";
+package sec03;
+
+option java_package = "com.grpc_playground.grcp_playgroud.model.sec03";
+option java_multiple_files = true;
+
+enum BodyType {
+  defaultValue = 0;
+  suv = 1; sadan =2; muv = 3;
+}
+
+message Car {
+  string make = 1;
+  string model = 2;
+  int32 year = 3;
+  BodyType bodyType = 4;
+}
+
+message Dealer {
+  map<int32, Car> inventory = 1;
+}

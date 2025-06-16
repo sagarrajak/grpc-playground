@@ -1,0 +1,16 @@
+syntax = "proto3";
+package sec03;
+
+option java_package = "com.grpc_playground.grcp_playgroud.model.sec03";
+option java_multiple_files = true;
+
+message Book {
+ string title =  1;
+ string author = 2;
+ string publication_data = 3;
+}
+
+message Library {
+  string name = 1;
+  repeated Book books = 2;
+}
