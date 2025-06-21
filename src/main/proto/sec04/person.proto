@@ -9,7 +9,7 @@ import "sec04/common/car.proto";
 
 message PersonNew {
   string name = 1;
-  int32 age = 2;
+  optional int32 age = 2;
   sec04.Car car = 3;
   sec04.Address address = 4;
 }
