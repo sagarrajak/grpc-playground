@@ -1,0 +1,15 @@
+syntax = "proto3";
+package sec02;
+
+option java_package = "com.grpc_playground.grcp_playgroud.model.sec04";
+option java_multiple_files = true;
+
+import "sec04/common/address.proto";
+import "sec04/common/car.proto";
+
+message PersonNew {
+  string name = 1;
+  int32 age = 2;
+  sec04.Car car = 3;
+  sec04.Address address = 4;
+}
