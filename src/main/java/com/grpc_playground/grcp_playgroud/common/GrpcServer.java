@@ -1,8 +1,6 @@
 package com.grpc_playground.grcp_playgroud.common;
 
-import io.grpc.BindableService;
-import io.grpc.Server;
-import io.grpc.ServerBuilder;
+import io.grpc.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,12 +22,11 @@ public class GrpcServer {
         return new GrpcServer(builder.build());
     }
 
-
     public GrpcServer start() {
         var services = server.getServices()
                 .stream()
-                .map(s -> s.getServiceDescriptor())
-                .map(s -> s.getName())
+                .map(ServerServiceDefinition::getServiceDescriptor)
+                .map(ServiceDescriptor::getName)
                 .toList();
         log.info("starting service {}", services);
         try {
@@ -41,7 +38,6 @@ public class GrpcServer {
         return this;
     }
 
-
     public GrpcServer awit() {
         try {
             server.awaitTermination();
@@ -50,7 +46,6 @@ public class GrpcServer {
         }
         return this;
     }
-
 
     public GrpcServer stop() {
         try {
