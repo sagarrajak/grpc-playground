@@ -19,4 +19,5 @@ public class GrpcClient {
         var balance = stub.getAccountBalance(balanceCheckRequest);
         logger.info("Found balance {}", balance);
     }
+
 }
